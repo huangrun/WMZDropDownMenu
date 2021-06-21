@@ -14,7 +14,8 @@
 + (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn {
     CGFloat imgW = btn.imageView.image.size.width;
     CGFloat imgH = btn.imageView.image.size.height;
-    CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
+//     CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
+    CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing -8,btn.frame.size.height)];//custom huangrun -8避免箭头位置太靠右
     CGFloat trueLabW = trueSize.width;
     CGFloat trueLabH = trueSize.height;
     //image中心移动的x距离
@@ -58,9 +59,10 @@
     CGSize _size;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
     NSDictionary *attribute = @{NSFontAttributeName: font};
-    NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine |
-    NSStringDrawingUsesLineFragmentOrigin |
-    NSStringDrawingUsesFontLeading;
+//     NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine |
+//     NSStringDrawingUsesLineFragmentOrigin |
+//     NSStringDrawingUsesFontLeading;
+    NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine;//custom huangrun 计算展示不完省略号模式下的宽度
     _size = [txt boundingRectWithSize:size options: options attributes:attribute context:nil].size;
 #else
     _size = [txt sizeWithFont:font constrainedToSize:size];
