@@ -64,7 +64,7 @@
             trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
             break;
         case MenuBtnLineBreakModeByTruncatingTail:
-            trueSize = [self boundingRectForOverRangeWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing -8,btn.frame.size.height)];
+            trueSize = [self boundingRectForOverRangeWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing-3,btn.frame.size.height)];//-3为间距显示优化
             break;
             
         default:
