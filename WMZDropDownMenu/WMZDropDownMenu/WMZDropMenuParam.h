@@ -106,7 +106,8 @@ WMZMenuStatementAndPropSetFuncStatement(assign,   WMZDropMenuParam, NSInteger,  
 WMZMenuStatementAndPropSetFuncStatement(assign,   WMZDropMenuParam, CGFloat,         wCollectionViewDefaultFootViewMarginY)
 //colletionViewFootView 距离顶部的距离 默认0
 WMZMenuStatementAndPropSetFuncStatement(assign,   WMZDropMenuParam, CGFloat,         wCollectionViewDefaultFootViewPaddingY)
-
+//colletionCell 是否单行显示 default NO（多行）custom huangrun 处理单行多行的不同模式的显示
+WMZMenuStatementAndPropSetFuncStatement(assign,   WMZDropMenuParam, BOOL,            wCollectionViewCellSingleLine)
 
 @end
 
