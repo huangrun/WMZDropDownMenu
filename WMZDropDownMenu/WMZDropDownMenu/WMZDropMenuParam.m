@@ -53,6 +53,8 @@ WMZMenuSetFuncImplementation(WMZDropMenuParam, BOOL,               wBorderShow)
 WMZMenuSetFuncImplementation(WMZDropMenuParam, BOOL,               wCellSelectShowCheck)
 WMZMenuSetFuncImplementation(WMZDropMenuParam, BOOL,               wMenuLine)
 WMZMenuSetFuncImplementation(WMZDropMenuParam, BOOL,               wBorderUpDownShow)
+WMZMenuSetFuncImplementation(WMZDropMenuParam, BOOL,               wCollectionViewCellSingleLine)//custom huangrun 处理单行多行的不同模式的显示    
+    
 - (instancetype)init{
     if (self = [super init]) {
         _wMenuTitleSpace = 2;
