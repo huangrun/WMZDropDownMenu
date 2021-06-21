@@ -78,7 +78,7 @@ static NSString* const notificationRemove = @"notificationRemove";
        
 //        [WMZDropMenuTool TagSetImagePosition:btn.position spacing:self.param.wMenuTitleSpace button:btn];
        //custom huangrun 处理单行多行的不同模式的显示
-       [WMZDropMenuTool TagSetImagePosition:btn.position lineBreakMode:MenuBtnLineBreakModeByWrapping spacing:self.param.wMenuTitleSpace button:btn];
+       [WMZDropMenuTool tagSetImagePosition:btn.position lineBreakMode:MenuBtnLineBreakModeByWrapping spacing:self.param.wMenuTitleSpace button:btn];
        
        [btn addTarget:self action:@selector(titleAction:) forControlEvents:UIControlEventTouchUpInside];
        btn.tag = 1000+i;
@@ -102,7 +102,7 @@ static NSString* const notificationRemove = @"notificationRemove";
            }
 //             [WMZDropMenuTool TagSetImagePosition:btn.position spacing:self.param.wMenuTitleSpace button:btn];
            //custom huangrun 处理单行多行的不同模式的显示
-       [WMZDropMenuTool TagSetImagePosition:btn.position lineBreakMode:MenuBtnLineBreakModeByWrapping spacing:self.param.wMenuTitleSpace button:btn];
+       [WMZDropMenuTool tagSetImagePosition:btn.position lineBreakMode:MenuBtnLineBreakModeByWrapping spacing:self.param.wMenuTitleSpace button:btn];
        }else{
            if ([[self.titleView subviews] indexOfObject:btn] == NSNotFound) {
                [self.titleView addSubview:btn];
