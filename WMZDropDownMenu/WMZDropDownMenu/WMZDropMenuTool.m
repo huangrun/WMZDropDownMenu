@@ -60,10 +60,10 @@
 
     CGSize trueSize = CGSizeZero;
     switch (lineBreakMode) {
-        case MenuBtnLineBreakByWordWrapping:
+        case MenuBtnLineBreakModeByWordWrapping:
             trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
             break;
-        case MenuBtnLineBreakByTruncatingTail:
+        case MenuBtnLineBreakModeByTruncatingTail:
             trueSize = [self boundingRectForOverRangeWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing -8,btn.frame.size.height)];
             break;
             
