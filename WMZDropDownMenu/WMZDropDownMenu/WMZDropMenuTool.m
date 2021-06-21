@@ -10,13 +10,54 @@
 
 @implementation WMZDropMenuTool
 
-//设置图文位置
-+ (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn {
+// //设置图文位置 
+// + (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn {
+//     CGFloat imgW = btn.imageView.image.size.width;
+//     CGFloat imgH = btn.imageView.image.size.height;
+//     CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
+//     CGFloat trueLabW = trueSize.width;
+//     CGFloat trueLabH = trueSize.height;
+//     //image中心移动的x距离
+//     CGFloat imageOffsetX = trueLabW/2 ;
+//     //image中心移动的y距离
+//     CGFloat imageOffsetY = trueLabH/2 + spacing/2;
+//     //label左边缘移动的x距离
+//     CGFloat labelOffsetX1 = imgW/2 - trueLabW/2 + trueLabW/2;
+//     //label右边缘移动的x距离
+//     CGFloat labelOffsetX2 = imgW/2 + trueLabW/2 - trueLabW/2;
+//     //label中心移动的y距离
+//     CGFloat labelOffsetY = imgH/2 + spacing/2;
+//     switch (postion) {
+//         case MenuBtnPositionLeft:
+//             btn.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
+//             btn.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
+//             break;
+            
+//         case MenuBtnPositionRight:
+//             btn.imageEdgeInsets = UIEdgeInsetsMake(0, trueLabW + spacing/2, 0, -(trueLabW + spacing/2));
+//             btn.titleEdgeInsets = UIEdgeInsetsMake(0, -(imgW + spacing/2), 0, imgW + spacing/2);
+//             break;
+            
+//         case MenuBtnPositionTop:
+//             btn.imageEdgeInsets = UIEdgeInsetsMake(-imageOffsetY, imageOffsetX, imageOffsetY, -imageOffsetX);
+//             btn.titleEdgeInsets = UIEdgeInsetsMake(labelOffsetY, -labelOffsetX1, -labelOffsetY, labelOffsetX2);
+//             break;
+            
+//         case MenuBtnPositionBottom:
+//             btn.imageEdgeInsets = UIEdgeInsetsMake(imageOffsetY, imageOffsetX, -imageOffsetY, -imageOffsetX);
+//             btn.titleEdgeInsets = UIEdgeInsetsMake(-labelOffsetY, -labelOffsetX1, labelOffsetY, labelOffsetX2);
+//             break;
+            
+//         default:
+//             break;
+//     }
+// }
+
+//设置图文位置 //custom huangrun 处理单行多行的不同模式的显示
++ (void)TagSetImagePosition:(MenuBtnPosition)postion lineBreakMode:(MenuBtnLineBreakMode)lineBreakMode spacing:(CGFloat)spacing button:(UIButton*)btn {
     CGFloat imgW = btn.imageView.image.size.width;
     CGFloat imgH = btn.imageView.image.size.height;
-//     CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
 
-    //custom huangrun 处理单行多行的不同模式的显示
     CGSize trueSize = CGSizeZero;
     switch (lineBreakMode) {
         case MenuBtnLineBreakByWordWrapping:
@@ -68,7 +109,6 @@
             break;
     }
 }
-
 
 +(CGSize)boundingRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size{
     CGSize _size;
