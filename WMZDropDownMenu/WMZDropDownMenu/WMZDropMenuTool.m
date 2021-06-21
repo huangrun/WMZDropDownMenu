@@ -74,10 +74,9 @@
     CGSize _size;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
     NSDictionary *attribute = @{NSFontAttributeName: font};
-//     NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine |
-//     NSStringDrawingUsesLineFragmentOrigin |
-//     NSStringDrawingUsesFontLeading;
-    NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine;//custom huangrun 计算展示不完省略号模式下的宽度
+    NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine |
+    NSStringDrawingUsesLineFragmentOrigin |
+    NSStringDrawingUsesFontLeading;
     _size = [txt boundingRectWithSize:size options: options attributes:attribute context:nil].size;
 #else
     _size = [txt sizeWithFont:font constrainedToSize:size];
