@@ -15,7 +15,22 @@
     CGFloat imgW = btn.imageView.image.size.width;
     CGFloat imgH = btn.imageView.image.size.height;
 //     CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
-    CGSize trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing -8,btn.frame.size.height)];//custom huangrun -8避免箭头位置太靠右
+
+    //custom huangrun 处理单行多行的不同模式的显示
+    CGSize trueSize = CGSizeZero;
+    switch (lineBreakMode) {
+        case MenuBtnLineBreakByWordWrapping:
+            trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
+            break;
+        case MenuBtnLineBreakByTruncatingTail:
+            trueSize = [self boundingRectForOverRangeWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing -8,btn.frame.size.height)];
+            break;
+            
+        default:
+            trueSize = [self boundingRectWithSize:btn.titleLabel.text Font:btn.titleLabel.font Size:CGSizeMake(btn.frame.size.width-imgW-spacing,btn.frame.size.height)];
+            break;
+    }
+    
     CGFloat trueLabW = trueSize.width;
     CGFloat trueLabH = trueSize.height;
     //image中心移动的x距离
@@ -71,6 +86,19 @@
     
 }
 
+//custom huangrun 增加仅支持单行出现省略号时文字宽度的获取 处理单行多行的不同模式的显示
++(CGSize)boundingRectForOverRangeWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size{
+    CGSize _size;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
+    NSDictionary *attribute = @{NSFontAttributeName: font};
+    NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine;
+    _size = [txt boundingRectWithSize:size options: options attributes:attribute context:nil].size;
+#else
+    _size = [txt sizeWithFont:font constrainedToSize:size];
+#endif
+    return _size;
+    
+}
 
 + (void)viewPathWithColor:(UIColor *)shadowColor  PathType:(MenuShadowPathType)shadowPathType PathWidth:(CGFloat)shadowPathWidth heightScale:(CGFloat)sacle button:(UIView*)btn{
     
