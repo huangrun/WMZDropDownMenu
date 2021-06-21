@@ -201,7 +201,8 @@
     if (self){
         [self.contentView addSubview:self.btn];
         self.btn.userInteractionEnabled = NO;
-        self.btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//         self.btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        self.btn.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;//custom huangrun 超出范围显示省略号
         self.btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return self;
