@@ -54,7 +54,7 @@
 // }
 
 //设置图文位置 //custom huangrun 处理单行多行的不同模式的显示
-+ (void)TagSetImagePosition:(MenuBtnPosition)postion lineBreakMode:(MenuBtnLineBreakMode)lineBreakMode spacing:(CGFloat)spacing button:(UIButton*)btn {
++ (void)tagSetImagePosition:(MenuBtnPosition)postion lineBreakMode:(MenuBtnLineBreakMode)lineBreakMode spacing:(CGFloat)spacing button:(UIButton*)btn {
     CGFloat imgW = btn.imageView.image.size.width;
     CGFloat imgH = btn.imageView.image.size.height;
 
