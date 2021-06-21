@@ -19,7 +19,7 @@
     self.param = param;
     BOOL dictionary = [dic isKindOfClass:[NSDictionary class]];
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.titleLabel.lineBreakMode = param.wCollectionViewCellSingleLine?NSLineBreakByTruncatingTail:NSLineBreakByWordWrapping;//custom huangrun 处理单行多行的不同模式的显示
+    self.titleLabel.lineBreakMode = param.wCollectionViewCellSingleLine?NSLineBreakModeByTruncatingTail:NSLineBreakModeByWordWrapping;//custom huangrun 处理单行多行的不同模式的显示
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     if ([dic isKindOfClass:[NSString class]]) {
         [self setTitle:dic forState:UIControlStateNormal];
