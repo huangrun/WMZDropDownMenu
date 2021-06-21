@@ -90,7 +90,7 @@
              cell.btn.layer.borderColor = tree.checkMore?[UIColor whiteColor].CGColor:(tree.isSelected? self.menu.param.wCollectionViewCellSelectTitleColor.CGColor:self.menu.param.wCollectionViewCellTitleColor.CGColor);
              cell.btn.layer.borderWidth = tree.checkMore?0:(tree.isSelected?self.menu.param.wCollectionViewCellBorderWith:0);
              cell.btn.layer.cornerRadius = 8;
-             
+             cell.btn.titleLabel.lineBreakMode = self.menu.param.wCollectionViewCellSingleLine?NSLineBreakByTruncatingTail:NSLineBreakByWordWrapping;//custom huangrun 处理单行多行的不同模式的显示
          }
          return cell;
     }
@@ -201,8 +201,7 @@
     if (self){
         [self.contentView addSubview:self.btn];
         self.btn.userInteractionEnabled = NO;
-//         self.btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.btn.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;//custom huangrun 超出范围显示省略号
+        self.btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return self;
