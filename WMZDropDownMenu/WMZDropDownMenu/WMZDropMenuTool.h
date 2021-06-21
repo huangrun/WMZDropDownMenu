@@ -26,13 +26,21 @@ typedef enum :NSInteger{
     MenuBtnPositionBottom   = 4,            //图片在下，文字在上
 }MenuBtnPosition;
 
+//custom huangrun 处理单行多行的不同模式的显示
+typedef enum :NSInteger {
+    MenuBtnLineBreakModeByWordWrapping     = 1,            //单词换行，超过截断
+    MenuBtnLineBreakModeByTruncatingTail   = 2,            //单词换行，超过末尾添加省略号
+} MenuBtnLineBreakMode;
+
 @interface WMZDropMenuTool : NSObject
 
 //设置图文位置
 + (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn;
 
 //计算按钮字体宽高
-+(CGSize)boundingRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size;
+// +(CGSize)boundingRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size;
+//custom huangrun 处理单行多行的不同模式的显示
++ (void)tagSetImagePosition:(MenuBtnPosition)postion lineBreakMode:(MenuBtnLineBreakMode)lineBreakMode spacing:(CGFloat)spacing button:(UIButton*)btn;
 
 //设置单边框
 + (void)viewPathWithColor:(UIColor *)shadowColor  PathType:(MenuShadowPathType)shadowPathType PathWidth:(CGFloat)shadowPathWidth heightScale:(CGFloat)sacle button:(UIView*)btn;
