@@ -35,12 +35,12 @@ typedef enum :NSInteger {
 @interface WMZDropMenuTool : NSObject
 
 //设置图文位置
-+ (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn;
-
-//计算按钮字体宽高
-// +(CGSize)boundingRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size;
+// + (void)TagSetImagePosition:(MenuBtnPosition)postion spacing:(CGFloat)spacing button:(UIButton*)btn;
 //custom huangrun 处理单行多行的不同模式的显示
 + (void)tagSetImagePosition:(MenuBtnPosition)postion lineBreakMode:(MenuBtnLineBreakMode)lineBreakMode spacing:(CGFloat)spacing button:(UIButton*)btn;
+
+//计算按钮字体宽高
++(CGSize)boundingRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize)size;
 
 //设置单边框
 + (void)viewPathWithColor:(UIColor *)shadowColor  PathType:(MenuShadowPathType)shadowPathType PathWidth:(CGFloat)shadowPathWidth heightScale:(CGFloat)sacle button:(UIView*)btn;
