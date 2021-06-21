@@ -18,8 +18,8 @@
     self.tj_acceptEventInterval = 0.3;
     self.param = param;
     BOOL dictionary = [dic isKindOfClass:[NSDictionary class]];
-//     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;//custom huangrun 超出范围显示省略号
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.titleLabel.lineBreakMode = param.wCollectionViewCellSingleLine?NSLineBreakByTruncatingTail:NSLineBreakByWordWrapping;//custom huangrun 处理单行多行的不同模式的显示
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     if ([dic isKindOfClass:[NSString class]]) {
         [self setTitle:dic forState:UIControlStateNormal];
@@ -88,7 +88,10 @@
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state{
     [super setTitle:title forState:state];
-    [WMZDropMenuTool TagSetImagePosition:self.position spacing:self.param.wMenuTitleSpace button:self];
+//     [WMZDropMenuTool TagSetImagePosition:self.position spacing:self.param.wMenuTitleSpace button:self];
+    //custom huangrun 处理单行多行的不同模式的显示
+    MenuBtnLineBreakMode lineBreakMode = self.param.wCollectionViewCellSingleLine?MenuBtnLineBreakByTruncatingTail:MenuBtnLineBreakByWordWrapping;
+    [WMZDropMenuTool tagSetImagePosition:self.position lineBreakMode:lineBreakMode spacing:self.param.wMenuTitleSpace button:self];
 }
 @end
 
